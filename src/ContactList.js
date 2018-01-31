@@ -6,17 +6,27 @@ const readFile = util.promisify(fs.readFile);
 
 class Contact {
 	constructor(obj) {
-		if(!obj || !obj.name)
-			throw "Name is needed to create a new person.";
+		if(!obj)
+			throw "Need object to initialize values from.";
 
 		this.name = obj.name;
 		this.age = obj.age;
-		this._phone = obj.phone;
+		this.phone = obj.phone;
 	};
   // addPhone(number) {
 
   //     return this.phone = number;
   // }
+
+	get name(){
+		return this._name;
+	}
+	set name(name){
+		if(!name)
+			throw "Name is needed to create a new person.";
+		else
+			this._name = name;
+	}
 
   get phone(){
   	return this._phone;

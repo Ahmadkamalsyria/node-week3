@@ -14,11 +14,11 @@ var Contact = function () {
 	function Contact(obj) {
 		_classCallCheck(this, Contact);
 
-		if (!obj || !obj.name) throw "Name is needed to create a new person.";
+		if (!obj) throw "Need object to initialize values from.";
 
 		this.name = obj.name;
 		this.age = obj.age;
-		this._phone = obj.phone;
+		this.phone = obj.phone;
 	}
 
 	_createClass(Contact, [{
@@ -32,13 +32,21 @@ var Contact = function () {
 			console.log("Wishing " + this.name + " a happy " + (this.age + 1) + "th birthday!");
 		}
 	}, {
-		key: "phone",
+		key: "name",
 
 		// addPhone(number) {
 
 		//     return this.phone = number;
 		// }
 
+		get: function get() {
+			return this._name;
+		},
+		set: function set(name) {
+			if (!name) throw "Name is needed to create a new person.";else this._name = name;
+		}
+	}, {
+		key: "phone",
 		get: function get() {
 			return this._phone;
 		},
