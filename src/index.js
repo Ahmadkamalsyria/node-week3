@@ -62,7 +62,21 @@ app.post("/add-contact", (req, res) => {
 		res.status(500).send(err);
 	})
 });
+	app.get("/all-contacts", (req,res) => {
 
+				return contacts.load()
+				.then(()=> {
+					console.log(contacts);
+					// console.log(contacts["list"]);
+
+					res.send(JSON.stringify(contacts.list));
+				})
+				.catch(err => {
+					console.log(err);
+					res.statusCode = 500;
+					res.send("Internal server error");
+		})
+	});
 // http
 // .createServer((req, res) => {
 // 	// log the incoming request
@@ -110,7 +124,7 @@ app.post("/add-contact", (req, res) => {
 // 				res.end();
 // 			})
 // 	    });
-// 	} 
+// 	}
 // 	else if(req.url === '/all-contacts'){
 // 		return contacts.load()
 // 		.then(()=> {
@@ -118,7 +132,7 @@ app.post("/add-contact", (req, res) => {
 // 			// console.log(contacts["list"]);
 
 // 			res.write(JSON.stringify(contacts.list));
-			
+
 // 			res.end();
 // 		})
 // 		.catch(err => {
