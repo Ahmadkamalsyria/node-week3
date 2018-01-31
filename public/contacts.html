@@ -12,8 +12,8 @@
 			for (i =0 ; i<contacts.length ; i++){
 				contactsArray = "";
 				contactsArray += contacts[i].name;
-				contactsArray +=contacts[i].age;
-				document.getElementById("showContacts").innerHTML +=`<li>${contactsArray}</li>`;
+				contactsArray += ' ' + contacts[i].age;
+				document.getElementById("showContacts").innerHTML +=`<li>${contactsArray} </li>`;
 			}
 
 		});

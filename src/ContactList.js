@@ -24,6 +24,8 @@ class Contact {
 	set name(name){
 		if(!name)
 			throw "Name is needed to create a new person.";
+		else if (name.length < 4)
+		throw 'name length should be at least 4 digits.';
 		else
 			this._name = name;
 	}
@@ -33,6 +35,11 @@ class Contact {
   }
 
   set phone(number){
+		if (number.length < 8)
+		throw 'please enter at least 8 digits';
+		else if(!(typeOf(number) === 'number' || typeOf(number) === 'string'))
+		throw 'phone number can only be a number or string'
+		else
   	this._phone = number;
   }
 

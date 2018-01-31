@@ -43,7 +43,7 @@ var Contact = function () {
 			return this._name;
 		},
 		set: function set(name) {
-			if (!name) throw "Name is needed to create a new person.";else this._name = name;
+			if (!name) throw "Name is needed to create a new person.";else if (name.length < 4) throw 'name length should be at least 4 digits.';else this._name = name;
 		}
 	}, {
 		key: "phone",
@@ -51,7 +51,7 @@ var Contact = function () {
 			return this._phone;
 		},
 		set: function set(number) {
-			this._phone = number;
+			if (number.length < 8) throw 'please enter at least 8 digits';else if (!(typeOf(number) === 'number' || typeOf(number) === 'string')) throw 'phone number can only be a number or string';else this._phone = number;
 		}
 	}]);
 
