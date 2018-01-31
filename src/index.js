@@ -62,6 +62,7 @@ app.post("/add-contact", (req, res) => {
 		res.status(500).send(err);
 	})
 });
+
 	app.get("/all-contacts", (req,res) => {
 
 				return contacts.load()

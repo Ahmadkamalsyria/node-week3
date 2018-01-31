@@ -7,8 +7,18 @@
 	<script type="text/javascript">
 		fetch("/all-contacts")
 		.then(res => res.json())
-		.then(console.log);
+		.then((contacts) => {
+
+			for (i =0 ; i<contacts.length ; i++){
+				contactsArray = "";
+				contactsArray += contacts[i].name;
+				contactsArray +=contacts[i].age;
+				document.getElementById("showContacts").innerHTML +=`<li>${contactsArray}</li>`;
+			}
+
+		});
 	</script>
-	<a href="/all-contacts">All Contacts</a>
+	<ul id= "showContacts">
+	</ul>
 </body>
 </html>

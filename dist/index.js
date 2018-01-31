@@ -78,6 +78,7 @@ app.post("/add-contact", function (req, res) {
 		res.status(500).send(err);
 	});
 });
+
 app.get("/all-contacts", function (req, res) {
 
 	return contacts.load().then(function () {
